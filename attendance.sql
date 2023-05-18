@@ -15,6 +15,15 @@ CREATE TABLE IF NOT EXISTS courses (
     FOREIGN KEY (teacher_id) REFERENCES teachers(id)
 );
 
+
+CREATE TABLE IF NOT EXISTS students (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+	email VARCHAR(255) NOT NULL UNIQUE,
+	password VARCHAR(255) NOT NULL
+);
+
+
 CREATE TABLE IF NOT EXISTS attendance (
     id INT PRIMARY KEY AUTO_INCREMENT,
     course_id INT,
@@ -25,33 +34,34 @@ CREATE TABLE IF NOT EXISTS attendance (
     FOREIGN KEY (student_id) REFERENCES students(id)
 );
 
-CREATE TABLE IF NOT EXISTS students (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50)
+CREATE TABLE IF NOT EXISTS registrations (
+    student_id INT,
+    course_id INT,
+    PRIMARY KEY(student_id, course_id),
+    FOREIGN KEY(student_id) REFERENCES students(id),
+    FOREIGN KEY(course_id) REFERENCES courses(id)
 );
 
-INSERT INTO teachers (name, email, password) VALUES 
-('Marc', 'marc@aut.com', SHA2('password123', 256)),
+INSERT INTO teachers (name, email, password) VALUES ('Mr. Johnson', 'johnson@example.com', 'password1');
+INSERT INTO teachers (name, email, password) VALUES ('Ms. Smith', 'smith@example.com', 'password2');
+
+INSERT INTO courses (course_name, teacher_id) VALUES ('Math 101', 1);
+INSERT INTO courses (course_name, teacher_id) VALUES ('English 102', 2);
+
+INSERT INTO students (name, email, password) VALUES ('John Doe', 'john@example.com', 'password3');
+INSERT INTO students (name, email, password) VALUES ('Jane Doe', 'jane@example.com', 'password4');
+
+INSERT INTO registrations (student_id, course_id) VALUES (1, 1);
+INSERT INTO registrations (student_id, course_id) VALUES (1, 2);
+INSERT INTO registrations (student_id, course_id) VALUES (2, 2);
+
+INSERT INTO attendance (course_id, student_id, status, date) VALUES (1, 1, 'Present', CURDATE());
+INSERT INTO attendance (course_id, student_id, status, date) VALUES (1, 1, 'Absent', DATE_SUB(CURDATE(), INTERVAL 1 DAY));
+INSERT INTO attendance (course_id, student_id, status, date) VALUES (2, 1, 'Late', CURDATE());
 
 
-INSERT INTO courses (teacher_id, course_name) VALUES 
-(1, 'Math 101'),
-(1, 'Physics 201'),
-(2, 'Chemistry 101'),
-(2, 'Biology 202'),
-(3, 'English 101'),
-(3, 'History 201');
-
-INSERT INTO attendance (course_id, student_id, status, date) VALUES 
-(1, 1, 'Present', '2023-01-01'),
-(1, 2, 'Absent', '2023-01-01'),
-(2, 1, 'Late', '2023-01-02');
 
 
-INSERT INTO students (name) VALUES 
-('Student One'),
-('Student Two'),
-('Student Three');
 
 
 

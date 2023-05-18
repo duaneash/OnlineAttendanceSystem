@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: course.php");
         }
     } elseif (isset($_POST['add_course'])) {
-        // User wants to add a course
+        
         $courseName = $_POST['add_course'];
         
         $sql = "INSERT INTO courses (course_name, teacher_id) VALUES (?, ?)";
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['course_id'])) {
-        // User wants to delete a course
+        
         $courseId = $_GET['course_id'];
         
         $sql = "DELETE FROM courses WHERE id = ? AND teacher_id = ?";
