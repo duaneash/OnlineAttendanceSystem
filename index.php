@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Student Registration</title>
+  <title>Login</title> 
   <link rel="stylesheet" type="text/css" href="CSS/styles.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -13,12 +13,18 @@
       <div class="col-md-6">
         <div class="card mt-5">
           <div class="card-body">
-            <div id="message"></div>
-            <form id="registerForm" action="process_signup.php" method="post">
-              <h2 class="text-center mb-4">Student Registration</h2>
+            <?php if (isset($_GET['message'])): ?>
+              <p class="error-message"><?php echo $_GET['message']; ?></p>
+            <?php endif; ?>
+            <form id="loginForm" action="process_login.php" method="post">
+              <h2 class="text-center mb-4">Login</h2>
               <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" class="form-control" required>
+                <label for="userType">Login as:</label>
+                <select name="userType" id="userType" class="form-control" required>
+                  <option value="">Select...</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="student">Student</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="email">Email:</label>
@@ -27,11 +33,10 @@
               <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" class="form-control" required>
-                <input type="hidden" name="signup_type" value="student">
               </div>
-              <input type="submit" value="Register" class="btn btn-primary btn-block">
+              <input type="submit" value="Login" class="btn btn-primary btn-block">
             </form>
-            <p class="mt-3 text-center">Already registered? <a href="index.php">Login here</a></p>
+            <p class="mt-3 text-center">Not registered? <a href="#" id="signupLink">Register here</a></p>
           </div>
         </div>
       </div>

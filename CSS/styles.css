@@ -1,81 +1,38 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    padding: 20px;
 }
 
 h2 {
-    color: #333;
+    color: #212529;
+    margin-bottom: 20px;
 }
 
-form {
-    width: 90%;
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 20px;
+.form-section {
     background-color: #ffffff;
-    border: 1px solid #cccccc;
-    box-shadow: 0px 0px 10px #cccccc;
-    margin-top: 50px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-form input[type="text"], form input[type="email"], form input[type="password"], form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #cccccc;
-    box-sizing: border-box;
-}
-
-form input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-}
-
-form input[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-table {
-    width: 90%;
-    margin: 50px auto;
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid #cccccc;
-    padding: 10px;
-    text-align: center;
-}
-
-table th {
-    background-color: #4CAF50;
-    color: white;
+.table-section {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .error-message {
     text-align: center;
     color: red;
-}
-
-.attendance-marking {
-    width: 90%;
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-    box-shadow: 0px 0px 10px #cccccc;
-    margin-top: 50px;
-}
-
-@media (max-width: 600px) {
-    form, table, .attendance-marking {
-        width: 100%;
-    }
 }

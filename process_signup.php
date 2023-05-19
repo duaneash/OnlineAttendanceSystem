@@ -19,11 +19,11 @@ if ($signup_type == 'teacher') {
     if (mysqli_query($conn, $query)) {
         $_SESSION['message'] = 'Registration successful!';
         $_SESSION['signup_message_type'] = 'success';
-        header("Location: teacher_login.php?message=Registration successful&type=success");
+        header("Location: index.php?message=Teacher Registration successful&type=success");
     } else {
         $_SESSION['message'] = 'Registration failed!';
         $_SESSION['signup_message_type'] = 'danger';
-        header("Location: teacher_login.php?message=Registration failed&type=danger");
+        header("Location: index.php?message=Teacher Registration failed&type=danger");
     }
 } else if ($signup_type == 'student') {
     $query = "INSERT INTO students (name, email, password) VALUES ('$name', '$email', '$hash')";
@@ -31,16 +31,16 @@ if ($signup_type == 'teacher') {
     if (mysqli_query($conn, $query)) {
         $_SESSION['message'] = 'Registration successful!';
         $_SESSION['signup_message_type'] = 'success';
-        header("Location: student_login.php?message=Registration successful&type=success");
+        header("Location: index.php?message=Student Registration successful&type=success");
     } else {
         $_SESSION['message'] = 'Registration failed!';
         $_SESSION['signup_message_type'] = 'danger';
-        header("Location: student_login.php?message=Registration failed&type=danger");
+        header("Location: index.php?message=Student Registration failed&type=danger");
     }
 } else {
     // If the signup type is neither teacher nor student
     $_SESSION['message'] = 'Invalid signup type!';
     $_SESSION['signup_message_type'] = 'danger';
-    header("Location: signup.php?message=Invalid signup type&type=danger");
+    header("Location: index.php?message=Invalid signup type&type=danger");
 }
 ?>
