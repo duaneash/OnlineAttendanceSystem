@@ -11,16 +11,16 @@ $userType = $_POST['userType'];
 
 if ($userType === 'teacher') {
     $query = "SELECT * FROM teachers WHERE email='$email'";
-    $loginPage = "teacher_login.php";
-    $redirectPage = "course.php";
+    $loginPage = "index.php";
+    $redirectPage = "teacher_course.php";
     $sessionVariable = 'teacher_id';
 } else if ($userType === 'student') {
     $query = "SELECT * FROM students WHERE email='$email'";
-    $loginPage = "student_login.php";
+    $loginPage = "index.php";
     $redirectPage = "student_course.php";
     $sessionVariable = 'student_id';
 } else {
-    header("Location: login.html?message=Invalid user type&type=danger");
+	header("Location: index.php?message=Invalid, please try again.");
     exit();
 }
 
