@@ -1,8 +1,8 @@
 <?php
 function connectToDatabase() {
     $servername = "localhost";
-    $username = "test";
-    $password = "test1234";
+    $username = "root";
+    $password = "";
     $dbname = "attendance";
 
     // Create
