@@ -8,6 +8,9 @@
   <script src="JS/main.js"></script>
 </head>
 <body>
+<!-- Added heading "1st Attendance System" here -->
+  <h1 class="text-center mt-4">1st Attendance System</h1>
+  
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
