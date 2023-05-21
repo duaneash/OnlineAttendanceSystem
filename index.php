@@ -2,7 +2,7 @@
 <html>
 <head>
 <!-- Added heading "1s Attendance System" here -->
-  <h1 class="text-center mt-4">1sAttendance System</h1>
+  <h1 class="text-center mt-4">1sAttend System</h1>
   
   <title>Login</title> 
   <link rel="stylesheet" type="text/css" href="CSS/styles.css">
